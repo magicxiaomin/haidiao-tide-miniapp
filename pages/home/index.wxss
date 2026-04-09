@@ -10,6 +10,16 @@
   color: rgba(255, 255, 255, 0.72);
 }
 
+.live-badge {
+  margin-top: 14rpx;
+  display: inline-flex;
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 22rpx;
+}
+
 .hero-top {
   display: flex;
   justify-content: space-between;

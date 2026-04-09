@@ -92,8 +92,12 @@ docs/
 
 当前推荐方案：
 
-- 潮汐主源：WorldTides
-- 海况主源：Open-Meteo Marine
+- 当前主数据源：Open-Meteo Marine
+
+说明：
+
+- 首版优先使用 Open-Meteo Marine 提供波高、风浪、涌浪、水温和海平面趋势。
+- 当前页面已支持实时海况优先、mock 数据兜底。
 
 相关说明见：[docs/data-source-evaluation.md](docs/data-source-evaluation.md)
 

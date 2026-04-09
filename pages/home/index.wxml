@@ -1,6 +1,7 @@
 <view class="container">
   <view class="hero-card home-hero">
     <view class="eyebrow">{{location}}</view>
+    <view class="live-badge">{{liveBadge}}</view>
     <view class="hero-top">
       <view>
         <view class="hero-title">今日海钓指数</view>

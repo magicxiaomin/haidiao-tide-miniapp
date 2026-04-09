@@ -3,6 +3,7 @@
     <view class="spot-hero-head">
       <view>
         <view class="spot-city">{{spot.city}} · {{spot.distanceKm}}km</view>
+        <view class="spot-badge">{{liveBadge}}</view>
         <view class="spot-title">{{spot.name}}</view>
       </view>
       <view class="spot-score-box">
@@ -101,6 +102,7 @@
 
   <view class="section">
     <view class="section-title">海况信息</view>
+    <view class="section-subtitle" wx:if="{{spot.liveMeta}}">{{spot.liveMeta}}</view>
     <view class="condition-grid">
       <block wx:for="{{spot.conditions}}" wx:key="label">
         <view class="panel condition-card">

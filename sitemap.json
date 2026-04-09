@@ -1,3 +1,9 @@
 {
-  "rules": []
+  "desc": "钓鱼潮汐天气小程序 sitemap",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
 }

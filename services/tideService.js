@@ -1,8 +1,23 @@
 const homeData = require('../data/mock/home')
 const spots = require('../data/mock/spots')
+const { DATA_MODE, DEFAULT_COORDINATES } = require('../config/data-source')
+const { fetchMarineSnapshot, buildHomeLiveSummary } = require('./liveDataService')
 
 function getHomeSummary() {
   return homeData
+}
+
+async function getHomeSummaryLive() {
+  const point = DEFAULT_COORDINATES.zhoushan
+  const marine = await fetchMarineSnapshot(point.lat, point.lng)
+
+  return {
+    ...homeData,
+    summary: {
+      ...homeData.summary,
+      ...buildHomeLiveSummary(marine)
+    }
+  }
 }
 
 function getPlannerData() {
@@ -60,5 +75,7 @@ function getPlannerData() {
 
 module.exports = {
   getHomeSummary,
+  getHomeSummaryLive,
+  isLiveMode: DATA_MODE === 'live',
   getPlannerData
 }

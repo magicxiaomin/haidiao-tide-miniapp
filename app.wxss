@@ -1,0 +1,79 @@
+page {
+  background: linear-gradient(180deg, #eef5fb 0%, #f7fbff 42%, #f2f7fa 100%);
+  color: #102033;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.container {
+  padding: 32rpx 28rpx 40rpx;
+}
+
+.hero-card,
+.panel,
+.spot-card,
+.timeline-item,
+.service-card,
+.member-card,
+.list-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 28rpx;
+  box-shadow: 0 18rpx 40rpx rgba(10, 44, 70, 0.08);
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #0d2238;
+}
+
+.section-subtitle {
+  margin-top: 8rpx;
+  color: #5f7189;
+  font-size: 24rpx;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  color: #0d5c75;
+  background: rgba(13, 92, 117, 0.1);
+}
+
+.score {
+  font-size: 72rpx;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18rpx 28rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(135deg, #0d5c75, #1b8399);
+  color: #ffffff;
+  font-size: 26rpx;
+  font-weight: 600;
+}
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18rpx 28rpx;
+  border-radius: 999rpx;
+  background: rgba(13, 92, 117, 0.08);
+  color: #0d5c75;
+  font-size: 26rpx;
+  font-weight: 600;
+}

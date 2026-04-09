@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="member-card profile-hero">
+    <view class="profile-title">把潮汐工具做成海钓生意</view>
+    <view class="profile-subtitle">先让用户爱用，再把会员和本地服务接进来</view>
+    <view class="button-primary">开通海钓 Pro 会员</view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">我的收藏</view>
+    <block wx:for="{{favorites}}" wx:key="id">
+      <view class="list-card favorite-card">
+        <view class="favorite-name">{{item.name}}</view>
+        <view class="favorite-window">最佳窗口 {{item.bestWindow}}</view>
+        <view class="favorite-note">{{item.note}}</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="section">
+    <view class="section-title">会员权益</view>
+    <view class="section-subtitle">{{memberValue}}</view>
+    <block wx:for="{{memberBenefits}}" wx:key="*this">
+      <view class="list-card benefit-item">{{item}}</view>
+    </block>
+  </view>
+
+  <view class="section">
+    <view class="section-title">商业化机会</view>
+    <block wx:for="{{businessCards}}" wx:key="title">
+      <view class="service-card business-card">
+        <view class="service-title">{{item.title}}</view>
+        <view class="service-subtitle">{{item.subtitle}}</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="section">
+    <view class="section-title">延展变现方向</view>
+    <block wx:for="{{bdCards}}" wx:key="title">
+      <view class="service-card business-card">
+        <view class="service-title">{{item.title}}</view>
+        <view class="service-subtitle">{{item.subtitle}}</view>
+      </view>
+    </block>
+  </view>
+</view>

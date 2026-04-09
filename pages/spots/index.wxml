@@ -1,0 +1,126 @@
+<view class="container" wx:if="{{spot}}">
+  <view class="hero-card spot-hero">
+    <view class="spot-hero-head">
+      <view>
+        <view class="spot-city">{{spot.city}} · {{spot.distanceKm}}km</view>
+        <view class="spot-title">{{spot.name}}</view>
+      </view>
+      <view class="spot-score-box">
+        <text class="score">{{spot.score}}</text>
+        <text class="score-note">{{spot.scoreText}}</text>
+      </view>
+    </view>
+
+    <view class="chip-row">
+      <block wx:for="{{spot.tags}}" wx:key="*this">
+        <view class="chip light">{{item}}</view>
+      </block>
+    </view>
+    <view class="chip-row audience-row">
+      <block wx:for="{{spot.audience}}" wx:key="*this">
+        <view class="chip light outline">{{item}}</view>
+      </block>
+    </view>
+
+    <view class="spot-description">{{spot.description}}</view>
+
+    <view class="spot-highlight">
+      <view>
+        <text class="label">最佳窗口</text>
+        <text class="value">{{spot.bestWindow}}</text>
+      </view>
+      <view>
+        <text class="label">风险提示</text>
+        <text class="value">{{spot.riskText}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">切换钓点</view>
+    <scroll-view scroll-x class="spot-tabs">
+      <block wx:for="{{spots}}" wx:key="id">
+        <view class="spot-tab {{currentSpotId === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="switchSpot">
+          {{item.name}}
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">为什么推荐这个点</view>
+    <view class="panel reason-panel">
+      <block wx:for="{{spot.reasons}}" wx:key="*this">
+        <view class="reason-item">{{item}}</view>
+      </block>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">玩法建议</view>
+    <view class="panel suggestion-panel">
+      <view class="suggest-line">
+        <text class="suggest-label">推荐玩法</text>
+        <text class="suggest-value">{{spot.suggestion.method}}</text>
+      </view>
+      <view class="suggest-line">
+        <text class="suggest-label">目标鱼种</text>
+        <text class="suggest-value">{{spot.suggestion.targetFish}}</text>
+      </view>
+      <view class="suggest-line">
+        <text class="suggest-label">注意事项</text>
+        <text class="suggest-value warn">{{spot.suggestion.warning}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">装备建议</view>
+    <view class="panel gear-panel">
+      <block wx:for="{{spot.gearTips}}" wx:key="*this">
+        <view class="gear-item">{{item}}</view>
+      </block>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">潮汐时间线</view>
+    <block wx:for="{{spot.timeline}}" wx:key="time">
+      <view class="timeline-item spot-timeline-item">
+        <view>
+          <view class="timeline-time">{{item.time}}</view>
+          <view class="timeline-type">{{item.type}}</view>
+        </view>
+        <view class="timeline-right">
+          <view class="timeline-height">{{item.height}}</view>
+          <view class="timeline-note">{{item.note}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="section">
+    <view class="section-title">海况信息</view>
+    <view class="condition-grid">
+      <block wx:for="{{spot.conditions}}" wx:key="label">
+        <view class="panel condition-card">
+          <view class="condition-label">{{item.label}}</view>
+          <view class="condition-value">{{item.value}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">附近服务</view>
+    <block wx:for="{{spot.services}}" wx:key="id">
+      <view class="service-card service-row">
+        <view>
+          <view class="service-title">{{item.title}}</view>
+          <view class="service-subtitle">{{item.subtitle}}</view>
+        </view>
+        <view class="button-secondary">{{item.cta}}</view>
+      </view>
+    </block>
+  </view>
+</view>

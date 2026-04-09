@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/spots/index",
+    "pages/planner/index",
+    "pages/profile/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "海钓潮汐",
+    "navigationBarBackgroundColor": "#0B1F33",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F4F8FB",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#6B7A90",
+    "selectedColor": "#0D5C75",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/spots/index",
+        "text": "钓点"
+      },
+      {
+        "pagePath": "pages/planner/index",
+        "text": "计划"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

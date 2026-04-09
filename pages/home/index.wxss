@@ -1,0 +1,218 @@
+.home-hero {
+  padding: 34rpx;
+  background: linear-gradient(160deg, #08233a 0%, #0d4e64 58%, #1d9ab0 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.eyebrow {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 18rpx;
+}
+
+.hero-title {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.hero-caption {
+  margin-top: 18rpx;
+  width: 420rpx;
+  font-size: 42rpx;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.score-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8rpx;
+}
+
+.score-note {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18rpx;
+  margin-top: 28rpx;
+}
+
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+  padding: 22rpx;
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.metric-label {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.metric-value {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.metric-value.small {
+  font-size: 24rpx;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.alert-box {
+  margin-top: 24rpx;
+  padding: 18rpx 22rpx;
+  border-radius: 22rpx;
+  background: rgba(255, 214, 102, 0.16);
+  color: #ffe1a8;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.suitable-text {
+  margin-top: 22rpx;
+  font-size: 24rpx;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-actions {
+  margin-top: 28rpx;
+}
+
+.section {
+  margin-top: 28rpx;
+}
+
+.quick-row {
+  margin-top: 18rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.quick-chip {
+  padding: 16rpx 22rpx;
+  border-radius: 999rpx;
+  background: rgba(13, 92, 117, 0.08);
+  color: #0d5c75;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.strategy-card {
+  margin-top: 18rpx;
+  padding: 26rpx;
+}
+
+.strategy-title {
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.strategy-body {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  line-height: 1.7;
+  color: #607087;
+}
+
+.trend-list {
+  margin-top: 18rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.trend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx;
+}
+
+.trend-time {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #0d2238;
+}
+
+.trend-main {
+  text-align: right;
+}
+
+.trend-state {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.trend-height {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #5f7189;
+}
+
+.home-spot {
+  margin-top: 18rpx;
+  padding: 26rpx;
+}
+
+.spot-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.spot-name {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.spot-meta {
+  margin-top: 10rpx;
+  color: #607087;
+  font-size: 24rpx;
+}
+
+.spot-score {
+  min-width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0d5c75, #1b8399);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: 800;
+}
+
+.spot-footer {
+  margin-top: 22rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #5f7189;
+}
+
+.spot-reason {
+  margin-top: 18rpx;
+  font-size: 24rpx;
+  color: #3f566f;
+  line-height: 1.6;
+}

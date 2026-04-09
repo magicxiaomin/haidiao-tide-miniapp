@@ -1,0 +1,55 @@
+<view class="container" wx:if="{{planner}}">
+  <view class="hero-card planner-hero">
+    <view class="planner-title">未来两天怎么安排更合适</view>
+    <view class="planner-subtitle">{{planner.dateLabel}}</view>
+    <view class="weekly-summary">
+      <view class="weekly-title">{{planner.weeklySummary.title}}</view>
+      <view class="weekly-body">{{planner.weeklySummary.body}}</view>
+    </view>
+    <block wx:for="{{planner.windows}}" wx:key="day">
+      <view class="window-row">
+        <view>
+          <view class="window-day">{{item.day}}</view>
+          <view class="window-note">{{item.note}}</view>
+        </view>
+        <view class="window-side">
+          <view class="window-time">{{item.time}}</view>
+          <view class="window-score">{{item.score}}分</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="section">
+    <view class="section-title">出钓策略</view>
+    <block wx:for="{{planner.strategies}}" wx:key="title">
+      <view class="list-card compare-card">
+        <view>
+          <view class="compare-name">{{item.title}}</view>
+          <view class="strategy-copy">{{item.body}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="section">
+    <view class="section-title">钓点对比</view>
+    <view class="section-subtitle">帮助用户从“有潮”升级到“去哪更稳”</view>
+    <block wx:for="{{planner.compare}}" wx:key="id">
+      <view class="list-card compare-card">
+        <view>
+          <view class="compare-name">{{item.name}}</view>
+          <view class="compare-meta">{{item.bestWindow}} · {{item.riskText}}</view>
+        </view>
+        <view class="compare-score">{{item.score}}</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="section">
+    <view class="section-title">出钓清单</view>
+    <block wx:for="{{planner.checklist}}" wx:key="*this">
+      <view class="list-card check-item">{{item}}</view>
+    </block>
+  </view>
+</view>

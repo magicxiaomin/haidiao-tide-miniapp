@@ -17,3 +17,6 @@ coverage/
 
 *.tmp
 *.temp
+
+tmp/
+project.private.config.json

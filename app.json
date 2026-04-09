@@ -6,7 +6,7 @@
     "pages/profile/index"
   ],
   "window": {
-    "navigationBarTitleText": "海钓潮汐",
+    "navigationBarTitleText": "钓鱼潮汐天气",
     "navigationBarBackgroundColor": "#0B1F33",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#F4F8FB",
@@ -20,7 +20,7 @@
     "list": [
       {
         "pagePath": "pages/home/index",
-        "text": "首页"
+        "text": "天气"
       },
       {
         "pagePath": "pages/spots/index",

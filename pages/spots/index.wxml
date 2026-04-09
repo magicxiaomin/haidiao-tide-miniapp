@@ -1,128 +1,118 @@
 <view class="container" wx:if="{{spot}}">
-  <view class="hero-card spot-hero">
-    <view class="spot-hero-head">
-      <view>
-        <view class="spot-city">{{spot.city}} · {{spot.distanceKm}}km</view>
-        <view class="spot-badge">{{liveBadge}}</view>
-        <view class="spot-title">{{spot.name}}</view>
-      </view>
-      <view class="spot-score-box">
-        <text class="score">{{spot.score}}</text>
-        <text class="score-note">{{spot.scoreText}}</text>
-      </view>
+  <view class="topbar">
+    <view class="topbar-left">
+      <view class="topbar-dot"></view>
+      <view class="topbar-title">Current Location</view>
     </view>
+    <view class="topbar-action">Go</view>
+  </view>
 
-    <view class="chip-row">
-      <block wx:for="{{spot.tags}}" wx:key="*this">
-        <view class="chip light">{{item}}</view>
-      </block>
-    </view>
-    <view class="chip-row audience-row">
-      <block wx:for="{{spot.audience}}" wx:key="*this">
-        <view class="chip light outline">{{item}}</view>
-      </block>
-    </view>
-
-    <view class="spot-description">{{spot.description}}</view>
-
-    <view class="spot-highlight">
-      <view>
-        <text class="label">最佳窗口</text>
-        <text class="value">{{spot.bestWindow}}</text>
-      </view>
-      <view>
-        <text class="label">风险提示</text>
-        <text class="value">{{spot.riskText}}</text>
+  <view class="detail-hero">
+    <view class="detail-overlay">
+      <view class="detail-kicker">OCEANIC DETAIL</view>
+      <view class="detail-name">{{spot.name}}</view>
+      <view class="detail-chips">
+        <view class="detail-window">
+          <view class="detail-window-label">BEST WINDOW</view>
+          <view class="detail-window-value">{{spot.bestWindow}}</view>
+        </view>
+        <view class="detail-risk">{{spot.riskText}}</view>
       </view>
     </view>
   </view>
 
-  <view class="section">
-    <view class="section-title">切换钓点</view>
-    <scroll-view scroll-x class="spot-tabs">
+  <view class="score-panel">
+    <view class="score-arc">
+      <view class="score-arc-ring"></view>
+      <view class="score-core">
+        <view class="score-panel-value">{{spot.score}}</view>
+        <view class="score-panel-label">{{spot.scoreText}}</view>
+      </view>
+    </view>
+    <view class="score-note">{{spot.description}}</view>
+  </view>
+
+  <scroll-view scroll-x class="spot-tabs" enhanced="true" show-scrollbar="false">
+    <view class="spot-tabs-row">
       <block wx:for="{{spots}}" wx:key="id">
         <view class="spot-tab {{currentSpotId === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="switchSpot">
           {{item.name}}
         </view>
       </block>
-    </scroll-view>
-  </view>
-
-  <view class="section">
-    <view class="section-title">为什么推荐这个点</view>
-    <view class="panel reason-panel">
-      <block wx:for="{{spot.reasons}}" wx:key="*this">
-        <view class="reason-item">{{item}}</view>
-      </block>
     </view>
-  </view>
+  </scroll-view>
 
   <view class="section">
-    <view class="section-title">玩法建议</view>
-    <view class="panel suggestion-panel">
-      <view class="suggest-line">
-        <text class="suggest-label">推荐玩法</text>
-        <text class="suggest-value">{{spot.suggestion.method}}</text>
-      </view>
-      <view class="suggest-line">
-        <text class="suggest-label">目标鱼种</text>
-        <text class="suggest-value">{{spot.suggestion.targetFish}}</text>
-      </view>
-      <view class="suggest-line">
-        <text class="suggest-label">注意事项</text>
-        <text class="suggest-value warn">{{spot.suggestion.warning}}</text>
-      </view>
-    </view>
-  </view>
-
-  <view class="section">
-    <view class="section-title">装备建议</view>
-    <view class="panel gear-panel">
-      <block wx:for="{{spot.gearTips}}" wx:key="*this">
-        <view class="gear-item">{{item}}</view>
-      </block>
-    </view>
-  </view>
-
-  <view class="section">
-    <view class="section-title">潮汐时间线</view>
-    <block wx:for="{{spot.timeline}}" wx:key="time">
-      <view class="timeline-item spot-timeline-item">
-        <view>
-          <view class="timeline-time">{{item.time}}</view>
-          <view class="timeline-type">{{item.type}}</view>
-        </view>
-        <view class="timeline-right">
-          <view class="timeline-height">{{item.height}}</view>
-          <view class="timeline-note">{{item.note}}</view>
+    <view class="section-title">Pro Suggestions</view>
+    <view class="suggest-box">
+      <view class="suggest-item">
+        <view class="suggest-icon aqua">A</view>
+        <view class="suggest-main">
+          <view class="suggest-head">Recommended Style</view>
+          <view class="suggest-copy">{{spot.suggestion.method}}</view>
         </view>
       </view>
-    </block>
+      <view class="suggest-item">
+        <view class="suggest-icon aqua">T</view>
+        <view class="suggest-main">
+          <view class="suggest-head">Target Species</view>
+          <view class="suggest-copy">{{spot.suggestion.targetFish}}</view>
+        </view>
+      </view>
+      <view class="suggest-item">
+        <view class="suggest-icon alert">!</view>
+        <view class="suggest-main">
+          <view class="suggest-head">Precautions</view>
+          <view class="suggest-copy">{{spot.suggestion.warning}}</view>
+        </view>
+      </view>
+    </view>
   </view>
 
   <view class="section">
-    <view class="section-title">海况信息</view>
-    <view class="section-subtitle" wx:if="{{spot.liveMeta}}">{{spot.liveMeta}}</view>
-    <view class="condition-grid">
+    <view class="condition-row">
       <block wx:for="{{spot.conditions}}" wx:key="label">
-        <view class="panel condition-card">
+        <view class="condition-tile">
+          <view class="condition-symbol">{{index === 0 ? '≈' : index === 1 ? '≋' : index === 2 ? '°' : '☾'}}</view>
           <view class="condition-label">{{item.label}}</view>
           <view class="condition-value">{{item.value}}</view>
         </view>
       </block>
     </view>
+    <view class="section-subtitle" wx:if="{{spot.liveMeta}}">{{spot.liveMeta}}</view>
   </view>
 
   <view class="section">
-    <view class="section-title">附近服务</view>
-    <block wx:for="{{spot.services}}" wx:key="id">
-      <view class="service-card service-row">
-        <view>
-          <view class="service-title">{{item.title}}</view>
-          <view class="service-subtitle">{{item.subtitle}}</view>
+    <view class="section-title">Tide Timeline</view>
+    <view class="timeline-card">
+      <block wx:for="{{spot.timeline}}" wx:key="time">
+        <view class="timeline-line">
+          <view class="timeline-marker {{index === 1 ? 'active' : ''}}"></view>
+          <view class="timeline-body">
+            <view class="timeline-type">{{item.type}}</view>
+            <view class="timeline-meta">{{item.note}}</view>
+          </view>
+          <view class="timeline-side">
+            <view class="timeline-clock">{{item.time}}</view>
+            <view class="timeline-height">{{item.height}}</view>
+          </view>
         </view>
-        <view class="button-secondary">{{item.cta}}</view>
-      </view>
-    </block>
+      </block>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">Nearby Services</view>
+    <view class="service-stack">
+      <block wx:for="{{spot.services}}" wx:key="id">
+        <view class="service-line">
+          <view class="service-left">
+            <view class="service-title">{{item.title}}</view>
+            <view class="service-subtitle">{{item.subtitle}}</view>
+          </view>
+          <view class="button-secondary">{{item.cta}}</view>
+        </view>
+      </block>
+    </view>
   </view>
 </view>

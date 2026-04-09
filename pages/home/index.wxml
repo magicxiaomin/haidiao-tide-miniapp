@@ -1,96 +1,79 @@
 <view class="container">
+  <view class="topbar">
+    <view class="topbar-left">
+      <view class="topbar-dot"></view>
+      <view class="topbar-title">{{location}}</view>
+    </view>
+    <view class="topbar-action">Go</view>
+  </view>
+
   <view class="hero-card home-hero">
-    <view class="eyebrow">{{location}}</view>
-    <view class="live-badge">{{liveBadge}}</view>
-    <view class="hero-top">
-      <view>
+    <view class="hero-head">
+      <view class="hero-copy">
         <view class="hero-title">今日海钓指数</view>
         <view class="hero-caption">{{summary.title}}</view>
+        <view class="hero-sub">{{liveBadge}}</view>
       </view>
-      <view class="score-block">
-        <text class="score">{{summary.score}}</text>
-        <text class="score-note">{{summary.scoreText}}</text>
-      </view>
-    </view>
-
-    <view class="hero-grid">
-      <view class="metric-card">
-        <text class="metric-label">最佳窗口</text>
-        <text class="metric-value">{{summary.bestWindow}}</text>
-      </view>
-      <view class="metric-card">
-        <text class="metric-label">海况概览</text>
-        <text class="metric-value small">{{summary.weather}}</text>
+      <view class="gauge">
+        <view class="gauge-ring"></view>
+        <view class="gauge-value">{{summary.score}}</view>
       </view>
     </view>
 
-    <view class="suitable-text">{{summary.suitableFor}}</view>
-    <view class="alert-box">{{summary.risk}}</view>
+    <view class="hero-window">
+      <view class="hero-window-label">最佳时间窗口</view>
+      <view class="hero-window-value">{{summary.bestWindow}}</view>
+    </view>
+
+    <view class="hero-weather">{{summary.weather}}</view>
+    <view class="hero-warning">{{summary.risk}}</view>
 
     <view class="hero-actions">
       <view class="button-primary" bindtap="goPlanner">安排出钓计划</view>
     </view>
+    <view class="hero-glow"></view>
   </view>
 
   <view class="section">
-    <view class="section-title">你现在最关心什么</view>
-    <view class="quick-row">
-      <block wx:for="{{quickActions}}" wx:key="*this">
-        <view class="quick-chip">{{item}}</view>
-      </block>
-    </view>
-  </view>
-
-  <view class="section">
-    <view class="section-title">今日策略</view>
-    <view class="section-subtitle">{{summary.recommendationReason}}</view>
-    <block wx:for="{{strategyCards}}" wx:key="title">
-      <view class="panel strategy-card">
-        <view class="strategy-title">{{item.title}}</view>
-        <view class="strategy-body">{{item.body}}</view>
+    <view class="section-head">
+      <view>
+        <view class="section-title">关键潮时</view>
       </view>
-    </block>
+      <view class="ghost-arrow">More</view>
+    </view>
+    <scroll-view scroll-x class="tide-scroll" enhanced="true" show-scrollbar="false">
+      <view class="tide-row">
+        <block wx:for="{{trend}}" wx:key="time">
+          <view class="tide-card {{index === 1 ? 'active' : ''}}">
+            <view class="tide-icon">{{index === 0 ? 'R' : index === 1 ? 'H' : index === 2 ? 'F' : 'L'}}</view>
+            <view class="tide-state">{{item.state}}</view>
+            <view class="tide-time">{{item.time}}</view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
   </view>
 
   <view class="section">
-    <view class="section-title">关键潮时</view>
-    <view class="section-subtitle">把复杂潮汐表翻译成关键节点</view>
-    <view class="trend-list">
-      <block wx:for="{{trend}}" wx:key="time">
-        <view class="timeline-item trend-item">
-          <view class="trend-time">{{item.time}}</view>
-          <view class="trend-main">
-            <view class="trend-state">{{item.state}}</view>
-            <view class="trend-height">{{item.height}}</view>
+    <view class="section-head">
+      <view>
+        <view class="section-title">热门钓点</view>
+      </view>
+    </view>
+    <view class="spot-list">
+      <block wx:for="{{spots}}" wx:key="id">
+        <view class="spot-item" bindtap="goSpotDetail" data-id="{{item.id}}">
+          <view class="spot-thumb spot-thumb-{{index}}"></view>
+          <view class="spot-main">
+            <view class="spot-top">
+              <view class="spot-name">{{item.name}}</view>
+              <view class="risk-pill {{item.riskLevel}}">{{item.riskText}}</view>
+            </view>
+            <view class="spot-meta">{{item.tags[0]}} · {{item.distanceKm}}km</view>
+            <view class="spot-best">Best {{item.bestWindow}}</view>
           </view>
         </view>
       </block>
     </view>
-  </view>
-
-  <view class="section">
-    <view class="section-title">热门钓点</view>
-    <view class="section-subtitle">以钓点为中心，而不是只看城市潮汐</view>
-    <block wx:for="{{spots}}" wx:key="id">
-      <view class="spot-card home-spot" bindtap="goSpotDetail" data-id="{{item.id}}">
-        <view class="spot-card-top">
-          <view>
-            <view class="spot-name">{{item.name}}</view>
-            <view class="spot-meta">{{item.distanceKm}}km · {{item.bestWindow}}</view>
-          </view>
-          <view class="spot-score">{{item.score}}</view>
-        </view>
-        <view class="chip-row">
-          <block wx:for="{{item.tags}}" wx:key="*this">
-            <view class="chip">{{item}}</view>
-          </block>
-        </view>
-        <view class="spot-reason">{{item.reason}}</view>
-        <view class="spot-footer">
-          <text>{{item.riskText}}</text>
-          <text>查看钓点详情</text>
-        </view>
-      </view>
-    </block>
   </view>
 </view>

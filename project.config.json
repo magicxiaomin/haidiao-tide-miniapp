@@ -1,7 +1,7 @@
 {
-  "appid": "touristappid",
-  "projectname": "海钓潮汐",
-  "description": "中国海钓玩家潮汐决策小程序",
+  "appid": "wx26ea7ad3e6f5576b",
+  "projectname": "钓鱼潮汐天气",
+  "description": "钓鱼，重要的是出发。查潮汐、查风浪、看天气，专为钓友打造的海钓助手。",
   "compileType": "miniprogram",
   "setting": {
     "urlCheck": false,
@@ -9,8 +9,32 @@
     "enhance": true,
     "postcss": true,
     "minified": true,
-    "coverView": true
+    "coverView": true,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
   },
   "libVersion": "3.4.7",
-  "srcMiniprogramRoot": "./"
+  "srcMiniprogramRoot": "./",
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {}
 }

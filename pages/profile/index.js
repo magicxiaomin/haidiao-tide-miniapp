@@ -3,6 +3,12 @@ const spotService = require('../../services/spotService')
 Page({
   data: {
     favorites: [],
+    profile: {
+      name: 'Elena Moretti',
+      badge: 'Gold Member',
+      summary: '专注海钓、风浪判断与精品钓点探索。',
+      cta: 'Advanced Risk Alerts'
+    },
     memberBenefits: [
       '未来 7-15 天高级海况预测',
       '重点钓点风浪预警提醒',
@@ -38,7 +44,10 @@ Page({
 
   onLoad() {
     this.setData({
-      favorites: spotService.getFavorites()
+      favorites: spotService.getFavorites().map((item, index) => ({
+        ...item,
+        imageClass: `fav-image-${index}`
+      }))
     })
   }
 })

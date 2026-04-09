@@ -1,11 +1,51 @@
 page {
-  background: linear-gradient(180deg, #eef5fb 0%, #f7fbff 42%, #f2f7fa 100%);
-  color: #102033;
+  background: #f7f9fb;
+  color: #191c1e;
   font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 .container {
-  padding: 32rpx 28rpx 40rpx;
+  padding: 24rpx 24rpx 40rpx;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8rpx 8rpx 18rpx;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.topbar-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: #003053;
+}
+
+.topbar-title {
+  font-family: "Arial", "PingFang SC", sans-serif;
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #003053;
+}
+
+.topbar-action {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 18rpx;
+  background: #ffffff;
+  color: #727780;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(25, 28, 30, 0.04);
+  font-size: 26rpx;
 }
 
 .hero-card,
@@ -15,40 +55,60 @@ page {
 .service-card,
 .member-card,
 .list-card {
-  background: rgba(255, 255, 255, 0.92);
+  background: #ffffff;
   border-radius: 28rpx;
-  box-shadow: 0 18rpx 40rpx rgba(10, 44, 70, 0.08);
+  box-shadow: 0 12rpx 32rpx rgba(25, 28, 30, 0.04);
+}
+
+.section {
+  margin-top: 34rpx;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18rpx;
 }
 
 .section-title {
-  font-size: 34rpx;
-  font-weight: 700;
-  color: #0d2238;
+  font-family: "Arial", "PingFang SC", sans-serif;
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #003053;
+  letter-spacing: -0.5rpx;
 }
 
 .section-subtitle {
-  margin-top: 8rpx;
-  color: #5f7189;
-  font-size: 24rpx;
+  margin-top: 6rpx;
+  color: #727780;
+  font-size: 22rpx;
+  line-height: 1.5;
+}
+
+.ghost-arrow {
+  color: #727780;
+  font-size: 28rpx;
 }
 
 .chip-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 12rpx;
+  gap: 10rpx;
 }
 
 .chip {
   display: inline-flex;
   align-items: center;
-  padding: 10rpx 18rpx;
+  padding: 8rpx 16rpx;
   border-radius: 999rpx;
-  font-size: 22rpx;
-  color: #0d5c75;
-  background: rgba(13, 92, 117, 0.1);
+  font-size: 20rpx;
+  color: #727780;
+  background: #f2f4f6;
 }
 
 .score {
+  font-family: "Arial", "PingFang SC", sans-serif;
   font-size: 72rpx;
   font-weight: 800;
   line-height: 1;
@@ -58,22 +118,23 @@ page {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 18rpx 28rpx;
-  border-radius: 999rpx;
-  background: linear-gradient(135deg, #0d5c75, #1b8399);
+  width: 100%;
+  min-height: 84rpx;
+  border-radius: 24rpx;
+  background: #006970;
   color: #ffffff;
-  font-size: 26rpx;
-  font-weight: 600;
+  font-size: 28rpx;
+  font-weight: 700;
 }
 
 .button-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 18rpx 28rpx;
-  border-radius: 999rpx;
-  background: rgba(13, 92, 117, 0.08);
-  color: #0d5c75;
-  font-size: 26rpx;
-  font-weight: 600;
+  padding: 18rpx 24rpx;
+  border-radius: 22rpx;
+  background: #f2f4f6;
+  color: #003053;
+  font-size: 24rpx;
+  font-weight: 700;
 }

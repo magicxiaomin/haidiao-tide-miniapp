@@ -1,46 +1,60 @@
 <view class="container">
-  <view class="member-card profile-hero">
-    <view class="profile-title">把潮汐工具做成海钓生意</view>
-    <view class="profile-subtitle">先让用户爱用，再把会员和本地服务接进来</view>
-    <view class="button-primary">开通海钓 Pro 会员</view>
+  <view class="topbar">
+    <view class="topbar-left">
+      <view class="topbar-dot"></view>
+      <view class="topbar-title">Current Location</view>
+    </view>
+    <view class="topbar-action">Go</view>
+  </view>
+
+  <view class="profile-hero">
+    <view class="avatar-ring">
+      <view class="avatar-core"></view>
+      <view class="pro-badge">PRO</view>
+    </view>
+    <view class="profile-name">{{profile.name}}</view>
+    <view class="member-chip">{{profile.badge}}</view>
+    <view class="profile-summary">{{profile.summary}}</view>
+    <view class="profile-benefit-tag">BENEFITS</view>
+    <view class="profile-cta">{{profile.cta}}</view>
   </view>
 
   <view class="section">
-    <view class="section-title">我的收藏</view>
-    <block wx:for="{{favorites}}" wx:key="id">
-      <view class="list-card favorite-card">
-        <view class="favorite-name">{{item.name}}</view>
-        <view class="favorite-window">最佳窗口 {{item.bestWindow}}</view>
-        <view class="favorite-note">{{item.note}}</view>
+    <view class="section-head">
+      <view class="section-title">My Collections</view>
+      <view class="section-subtitle">View all</view>
+    </view>
+    <scroll-view scroll-x class="collection-scroll" enhanced="true" show-scrollbar="false">
+      <view class="collection-row">
+        <block wx:for="{{favorites}}" wx:key="id">
+          <view class="collection-card">
+            <view class="collection-image {{item.imageClass}}"></view>
+            <view class="collection-name">{{item.name}}</view>
+            <view class="collection-meta">saved spots</view>
+          </view>
+        </block>
       </view>
-    </block>
+    </scroll-view>
   </view>
 
   <view class="section">
-    <view class="section-title">会员权益</view>
-    <view class="section-subtitle">{{memberValue}}</view>
-    <block wx:for="{{memberBenefits}}" wx:key="*this">
-      <view class="list-card benefit-item">{{item}}</view>
-    </block>
+    <view class="section-title">Member Benefits</view>
+    <view class="benefit-grid">
+      <block wx:for="{{memberBenefits}}" wx:key="*this">
+        <view class="benefit-card">
+          <view class="benefit-icon">{{index === 0 ? 'S' : index === 1 ? 'I' : index === 2 ? 'C' : 'M'}}</view>
+          <view class="benefit-name">{{item}}</view>
+        </view>
+      </block>
+    </view>
   </view>
 
   <view class="section">
-    <view class="section-title">商业化机会</view>
-    <block wx:for="{{businessCards}}" wx:key="title">
-      <view class="service-card business-card">
-        <view class="service-title">{{item.title}}</view>
-        <view class="service-subtitle">{{item.subtitle}}</view>
-      </view>
-    </block>
-  </view>
-
-  <view class="section">
-    <view class="section-title">延展变现方向</view>
-    <block wx:for="{{bdCards}}" wx:key="title">
-      <view class="service-card business-card">
-        <view class="service-title">{{item.title}}</view>
-        <view class="service-subtitle">{{item.subtitle}}</view>
-      </view>
-    </block>
+    <view class="partner-card">
+      <view class="section-title">Business Partnership</view>
+      <view class="partner-copy">Elevate your marina or maritime fleet with our enterprise integration solutions. Access real-time logistics and safety protocols for professional teams.</view>
+      <view class="partner-button">Request Fleet Access</view>
+      <view class="partner-image"></view>
+    </view>
   </view>
 </view>
